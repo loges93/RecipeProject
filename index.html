@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>Home</title>
+</head>
+<body onload="loadRecipe(recipe1); AOS.init(); loadSelectRecipe(recipes);">
+    <header>
+        <h1>Rambunctious Recipes</h1>
+    </header>
+    <select id="recipe-select" onchange="changeRecipe(this.value)">
+        <option value="">Please Choose A Recipe...</option>
+    </select><br>
+    <a href="input.html" onclick="saveInitial()">Add A Recipe</a> 
+    <input id="delete-btn" type="button" onclick="DeleteRecipe()" value="Delete Recipe">
+    <section class="current-recipe">
+        <h2 id="recipe-title"></h2>
+        <div>
+             <img src="" alt="recipe-image" id="recipe-image">
+            <div id="summary-area">
+                <p id="prep-time">Prep-Time: </p>
+                <p id="cook-time">Cook-Time: </p>
+                <p id="servings">Servings: <span id="serving-number"></span></p>
+            </div>
+        </div>
+        <div id="choose-servings-container">
+            <h4>Choose Serving Amount:</h4>
+            <div>
+                <select name="serving-number" id="servings" onchange="changeAmounts(this)">
+                    <option value="normal">Normal</option>
+                    <option value="half">Half</option>
+                    <option value="double">Double</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
+        </div>
+        <div id="ingredients-list-area">
+            <h3 onclick="expandIngredients()"><span class="expand-btn ing_btn">+</span>Ingredients</h3>
+            <ul id="ingredients-list">
+
+            </ul>
+        </div>
+        <div class="line"></div>
+        <div id="directions-list-area">
+            <h3 onclick="expandDirections()"><span class="expand-btn dir_btn">+</span>Directions</h3>
+            <ul id="directions-list">
+
+            </ul>
+        </div>
+    </section>
+</body>
+<script>
+
+</script>
+</html>

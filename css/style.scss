@@ -1,0 +1,408 @@
+$maincolorgreen: #9ee493;
+$maincolorblue: #2f4858;
+$maincolorlightblue: #86bbd8;
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Indie Flower', cursive;
+}
+body{
+    min-height: 100vh;
+    background-color: $maincolorblue;
+}
+#recipe-select{
+    margin: 2rem;
+    font-size: 1.5rem;
+    color: $maincolorblue;
+    border: solid 5px $maincolorgreen;
+}
+header{
+    background-color: $maincolorgreen;
+    h1{
+        color: $maincolorblue;
+        font-family: 'Indie Flower', cursive;
+        font-size: 3rem;
+        margin-left: 1em;
+    }
+}
+.carousel{
+    display:flex;
+    justify-content: center;
+    a{
+        img{
+            max-height: 600px;
+            border: solid 5px $maincolorlightblue;
+        }
+    }
+}
+.current-recipe{
+    padding-top: 5%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $maincolorblue;
+    > div:first-of-type{
+        width: 40%
+    }
+    h2{
+        color: $maincolorgreen;
+        font-size: 2.4em;
+    }
+    img{
+        border: solid 5px $maincolorlightblue;
+        width: 100%;
+    }
+    #summary-area{
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        background-color: $maincolorgreen;
+        margin-bottom: 2em;
+        padding: 5px;
+        width: 100%;
+        p{
+            color: $maincolorblue;
+            
+        }
+    }
+    h3{
+        align-self: flex-start;
+        color: $maincolorlightblue;
+        text-decoration: underline;
+        font-size: 1.5em;
+    }
+    p, li{
+        color:white;
+
+    }
+}
+#delete-btn, a{
+    background-color: $maincolorgreen;
+    color: $maincolorblue;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    padding: .5rem;
+    font-weight: bold;
+    box-shadow: 1px 5px $maincolorlightblue;
+    border: none;
+}
+#delete-btn{
+    background: $maincolorlightblue;
+    box-shadow: 1px 5px $maincolorgreen;
+}
+#ingredients-list-area{
+    width: 85%;
+    margin-bottom: 2em;
+    align-self: flex-start;
+    margin-left: 7.5%;
+    padding: 5px;
+    span{
+        margin-right: .5rem;
+    }
+}
+.ing-amount{
+    color: $maincolorgreen;
+}
+#directions-list-area{
+    max-width: 85%;
+    padding: 5px;
+    align-self: flex-start;
+    margin-left: 7.5%;
+}
+#directions-list, #ingredients-list{
+    list-style-position: inside;
+    overflow-y: hidden;
+    transition: 0.7s ease-in-out;
+    max-height: 0; 
+    li{
+        margin: 1em;
+    }
+}
+
+.line{
+    border-radius: 50%;
+    background-color: $maincolorgreen;
+    height: 5px;
+    width: 80%;
+    margin-bottom: 2em;
+}
+#summary-area, #ingredients-list-area, #directions-list-area{
+    font-size: 1.4em;
+    h3{
+        
+    }
+    h3:hover{
+        cursor:pointer;
+    }
+    .expand-btn{
+        color:$maincolorgreen;
+    }
+}
+//Serving Select element
+#choose-servings-container{
+    font-size: 1.5em;
+    align-self: flex-start;
+    margin-left: 7.5%;
+    margin-bottom: 1em;
+    h4{
+        color: $maincolorgreen;
+    }
+    select{
+        font-size: 1.3rem;
+        width: 100%;
+    }
+}
+
+//animations
+@keyframes hightlight_fade{
+    from{
+        background-color: $maincolorgreen;
+        color: $maincolorblue;
+    }
+    to{
+        background-color: $maincolorblue;
+        color: white;
+    }
+}
+.changed{
+    animation: highlight_fade 2s;
+}
+//Responsive Media Queries
+@media only screen and (max-width: 886px){
+    .current-recipe{
+        img{
+            width: 100%;
+        }
+        #summary-area{
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+        } 
+    }
+}
+@media only screen and (max-width: 510px){
+    #choose-servings-container{
+        align-self: auto;
+        margin-left: 0;
+    }
+    #recipe-title{
+        margin-left: 7.5%;
+    }
+}
+html{
+    font-size: 14px;
+}
+//---------------------------------------------
+//Style for input.html
+
+.container-input{
+    background-image: url("../images/food-background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form-error{
+    min-height: 1.2rem;
+    margin: 1rem 0;
+    color: red;
+}
+
+#form-area{
+    margin: 2rem 0;
+    overflow-x: hidden;
+    background-color: $maincolorblue;
+    border: solid $maincolorgreen 1px;
+    border-radius: 15px;
+    width: 90%;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    h2{
+        margin: 2rem;
+        color: $maincolorgreen;
+        border-bottom: 2px solid $maincolorlightblue;
+        padding: 0;
+        font-size: 2.5rem;
+        font-family: 'Permanent Marker', cursive;
+    }
+}
+.form-component{
+    font-size: 1.2rem;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    label{
+        color: $maincolorlightblue;
+    }
+    input{
+        font-size: 1.1rem;
+        width: 60%;
+    }
+    input[type="text"]{
+        
+    }
+    
+    input[type="file"]{
+        padding: 2px;
+        color: $maincolorgreen;
+        width: 60%;
+    }
+    input[type="number"]{
+        width: 60%;
+    }
+
+}
+label[for="ingredients"]{
+    align-self: flex-start;
+    margin-left: 10%;
+    font-size: 1.2rem;
+    color: $maincolorlightblue;
+    margin-bottom: 1rem;
+}
+
+label[for="directions"]{
+    color: $maincolorlightblue;
+    align-self: flex-start;
+    margin-left: 10%;
+    font-size: 1.2rem;
+    margin: 1rem 10%;
+}
+#ingredients-input-area{
+    display: flex;
+    flex-direction: column;
+}
+.ingredient-input-component{
+    border: solid 3px $maincolorgreen;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: .5rem;
+    label{
+        color: $maincolorlightblue;
+        font-size: 1rem;
+        
+    }
+    label[for="ingredients-num"]{
+        border-bottom: $maincolorgreen solid 2px;
+        margin-bottom: .5rem;
+    }
+}
+.ingredient-values{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.amount-input{
+    width: 61%;
+    display: flex;
+    input{
+        flex-grow: 1;
+    };
+}
+
+//Buttons
+input[value="Add Ingredient"]{
+    align-self: flex-start;
+    margin-left: 10%;
+    padding: .5rem;
+    background-color: $maincolorgreen;
+    border-radius: 10px;
+    border: none;
+    color: $maincolorblue;
+    font-weight: bold;
+}
+input[value="Add Direction"]{
+    align-self: flex-start;
+    margin-left: 10%;
+    background-color: $maincolorlightblue;
+    color: $maincolorblue;
+    border: none;
+    border-radius: 10px;
+    padding: .5rem;
+    font-weight: bold;
+}
+
+input[value="Add Recipe"]{
+    border: 3px solid $maincolorgreen;
+    background-color: $maincolorlightblue;
+    margin: 3rem;
+    padding: .5rem;
+    border-radius: 10px;
+    color: $maincolorblue;
+    font-weight: bold;
+    min-width: 40%;
+}
+.direction-input-component{
+    border: solid 3px $maincolorlightblue;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: .5rem;
+
+    label{
+        color: $maincolorgreen;
+        font-size: 1rem;
+        border-bottom: 2px solid $maincolorlightblue;
+        margin-bottom: .5rem;
+        align-self: flex-start;
+    }
+    textarea{
+        width: 100%;
+    }
+    .directions-input{
+        font-size: 1rem;
+    }
+}
+@media only screen and (max-width: 600px){
+    .form-component{
+        flex-direction: column;
+        input{
+            min-width: 100%;
+        }
+    }
+}
+#directions-input-area{
+    display:flex;
+    flex-direction: column;
+}
+.bottom-image{
+    border: blue solid 2px;
+    width: 100px;
+    height: 100px;
+}
+a[href="input.html"]{
+    margin-left: 2rem;
+}
+@media only screen and (min-width: 1250px){
+    html{
+        font-size:20px;
+    }
+}

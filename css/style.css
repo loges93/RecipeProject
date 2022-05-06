@@ -1,0 +1,440 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Indie Flower', cursive;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #2f4858;
+}
+
+#recipe-select {
+  margin: 2rem;
+  font-size: 1.5rem;
+  color: #2f4858;
+  border: solid 5px #9ee493;
+}
+
+header {
+  background-color: #9ee493;
+}
+
+header h1 {
+  color: #2f4858;
+  font-family: 'Indie Flower', cursive;
+  font-size: 3rem;
+  margin-left: 1em;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel a img {
+  max-height: 600px;
+  border: solid 5px #86bbd8;
+}
+
+.current-recipe {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2f4858;
+}
+
+.current-recipe > div:first-of-type {
+  width: 40%;
+}
+
+.current-recipe h2 {
+  color: #9ee493;
+  font-size: 2.4em;
+}
+
+.current-recipe img {
+  border: solid 5px #86bbd8;
+  width: 100%;
+}
+
+.current-recipe #summary-area {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  background-color: #9ee493;
+  margin-bottom: 2em;
+  padding: 5px;
+  width: 100%;
+}
+
+.current-recipe #summary-area p {
+  color: #2f4858;
+}
+
+.current-recipe h3 {
+  align-self: flex-start;
+  color: #86bbd8;
+  text-decoration: underline;
+  font-size: 1.5em;
+}
+
+.current-recipe p, .current-recipe li {
+  color: white;
+}
+
+#delete-btn, a {
+  background-color: #9ee493;
+  color: #2f4858;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  padding: .5rem;
+  font-weight: bold;
+  box-shadow: 1px 5px #86bbd8;
+  border: none;
+}
+
+#delete-btn {
+  background: #86bbd8;
+  box-shadow: 1px 5px #9ee493;
+}
+
+#ingredients-list-area {
+  width: 85%;
+  margin-bottom: 2em;
+  align-self: flex-start;
+  margin-left: 7.5%;
+  padding: 5px;
+}
+
+#ingredients-list-area span {
+  margin-right: .5rem;
+}
+
+.ing-amount {
+  color: #9ee493;
+}
+
+#directions-list-area {
+  max-width: 85%;
+  padding: 5px;
+  align-self: flex-start;
+  margin-left: 7.5%;
+}
+
+#directions-list, #ingredients-list {
+  list-style-position: inside;
+  overflow-y: hidden;
+  transition: 0.7s ease-in-out;
+  max-height: 0;
+}
+
+#directions-list li, #ingredients-list li {
+  margin: 1em;
+}
+
+.line {
+  border-radius: 50%;
+  background-color: #9ee493;
+  height: 5px;
+  width: 80%;
+  margin-bottom: 2em;
+}
+
+#summary-area, #ingredients-list-area, #directions-list-area {
+  font-size: 1.4em;
+}
+
+#summary-area h3:hover, #ingredients-list-area h3:hover, #directions-list-area h3:hover {
+  cursor: pointer;
+}
+
+#summary-area .expand-btn, #ingredients-list-area .expand-btn, #directions-list-area .expand-btn {
+  color: #9ee493;
+}
+
+#choose-servings-container {
+  font-size: 1.5em;
+  align-self: flex-start;
+  margin-left: 7.5%;
+  margin-bottom: 1em;
+}
+
+#choose-servings-container h4 {
+  color: #9ee493;
+}
+
+#choose-servings-container select {
+  font-size: 1.3rem;
+  width: 100%;
+}
+
+@keyframes hightlight_fade {
+  from {
+    background-color: #9ee493;
+    color: #2f4858;
+  }
+  to {
+    background-color: #2f4858;
+    color: white;
+  }
+}
+
+.changed {
+  animation: highlight_fade 2s;
+}
+
+@media only screen and (max-width: 886px) {
+  .current-recipe img {
+    width: 100%;
+  }
+  .current-recipe #summary-area {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  #choose-servings-container {
+    align-self: auto;
+    margin-left: 0;
+  }
+  #recipe-title {
+    margin-left: 7.5%;
+  }
+}
+
+html {
+  font-size: 14px;
+}
+
+.container-input {
+  background-image: url("../images/food-background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#form-error {
+  min-height: 1.2rem;
+  margin: 1rem 0;
+  color: red;
+}
+
+#form-area {
+  margin: 2rem 0;
+  overflow-x: hidden;
+  background-color: #2f4858;
+  border: solid #9ee493 1px;
+  border-radius: 15px;
+  width: 90%;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#form-area form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#form-area h2 {
+  margin: 2rem;
+  color: #9ee493;
+  border-bottom: 2px solid #86bbd8;
+  padding: 0;
+  font-size: 2.5rem;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.form-component {
+  font-size: 1.2rem;
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-component label {
+  color: #86bbd8;
+}
+
+.form-component input {
+  font-size: 1.1rem;
+  width: 60%;
+}
+
+.form-component input[type="file"] {
+  padding: 2px;
+  color: #9ee493;
+  width: 60%;
+}
+
+.form-component input[type="number"] {
+  width: 60%;
+}
+
+label[for="ingredients"] {
+  align-self: flex-start;
+  margin-left: 10%;
+  font-size: 1.2rem;
+  color: #86bbd8;
+  margin-bottom: 1rem;
+}
+
+label[for="directions"] {
+  color: #86bbd8;
+  align-self: flex-start;
+  margin-left: 10%;
+  font-size: 1.2rem;
+  margin: 1rem 10%;
+}
+
+#ingredients-input-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredient-input-component {
+  border: solid 3px #9ee493;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.ingredient-input-component label {
+  color: #86bbd8;
+  font-size: 1rem;
+}
+
+.ingredient-input-component label[for="ingredients-num"] {
+  border-bottom: #9ee493 solid 2px;
+  margin-bottom: .5rem;
+}
+
+.ingredient-values {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.amount-input {
+  width: 61%;
+  display: flex;
+}
+
+.amount-input input {
+  flex-grow: 1;
+}
+
+input[value="Add Ingredient"] {
+  align-self: flex-start;
+  margin-left: 10%;
+  padding: .5rem;
+  background-color: #9ee493;
+  border-radius: 10px;
+  border: none;
+  color: #2f4858;
+  font-weight: bold;
+}
+
+input[value="Add Direction"] {
+  align-self: flex-start;
+  margin-left: 10%;
+  background-color: #86bbd8;
+  color: #2f4858;
+  border: none;
+  border-radius: 10px;
+  padding: .5rem;
+  font-weight: bold;
+}
+
+input[value="Add Recipe"] {
+  border: 3px solid #9ee493;
+  background-color: #86bbd8;
+  margin: 3rem;
+  padding: .5rem;
+  border-radius: 10px;
+  color: #2f4858;
+  font-weight: bold;
+  min-width: 40%;
+}
+
+.direction-input-component {
+  border: solid 3px #86bbd8;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.direction-input-component label {
+  color: #9ee493;
+  font-size: 1rem;
+  border-bottom: 2px solid #86bbd8;
+  margin-bottom: .5rem;
+  align-self: flex-start;
+}
+
+.direction-input-component textarea {
+  width: 100%;
+}
+
+.direction-input-component .directions-input {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .form-component {
+    flex-direction: column;
+  }
+  .form-component input {
+    min-width: 100%;
+  }
+}
+
+#directions-input-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-image {
+  border: blue solid 2px;
+  width: 100px;
+  height: 100px;
+}
+
+a[href="input.html"] {
+  margin-left: 2rem;
+}
+
+@media only screen and (min-width: 1250px) {
+  html {
+    font-size: 20px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

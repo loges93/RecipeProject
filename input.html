@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <script src="js/input_script.js"></script>
+    <title>Add Recipe!</title>
+</head>
+<body onload="getClones()">
+    <div class="container-input">
+        <div id="form-area">
+           <h2>Add a New Recipe!</h2>
+           <h3 id="form-error"></h3>
+           <form action="">
+                <div class="form-component titlecomp">
+                    <label for="title">Title:</label>
+                    <input id="title-input" type="text">
+                </div>
+                <div class="form-component imagecomp">
+                    <label for="image">Image:</label>
+                    <input id="image-input" type="file">
+                </div>
+                <div class="form-component">
+                    <label for="prep-time">Prep-Time:</label>
+                    <input  id="prep-input" type="text" placeholder="">
+                </div>
+                <div class="form-component">
+                    <label for="cook-time">Cook-Time:</label>
+                    <input id="cook-input" type="text" placeholder="">
+                </div>
+                <div class="form-component">
+                    <label for="servings">Servings:</label>
+                    <input id="servings-input" type="number">
+                </div>
+                <label for="ingredients">Ingredients:</label>
+                <div id="ingredients-input-area" class="form-component">
+                    <div  class="ingredient-input-component animate__animated animate__fadeInLeft">
+                        <label for="ingredients-num">New Ingredient</label>
+                        <div class="ingredient-values">
+                            <div class="form-component">
+                                <label for="">Name: </label>
+                                <input class="ingredient-name-input" type="text">
+                            </div>
+                            <div class="form-component">
+                                <label for="ing-input-amount">Amount: </label>
+                                <div class="amount-input">
+                                    <input class="amount-num" type="number">
+                                    <select class="unit-options" name="unit-options" id="">
+                                        <option value="">(unit)</option>
+                                        <option value="cup">cup</option>
+                                        <option value="tbsp">tbsp</option>
+                                        <option value="pound">lb</option> 
+                                        <option value="tsp">tsp</option>
+                                        <option value="can">can</option>
+                                        <option value="gallon">gallon</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input onclick="appendClone('ingredient')" value="Add Ingredient" type="button">
+                <label for="directions">Directions:</label>
+                <div id="directions-input-area" class="form-component">
+                    <div  class="direction-input-component animate__animated animate__fadeInRight">
+                        <label for="direction">New Direction</label>
+                        <textarea class="directions-input" name="" id="" cols="40" rows="5"></textarea>
+                    </div>
+                </div>
+                <input onclick="appendClone('direction')" value="Add Direction" type="button">
+                <input type="button" onclick="processForm()" value="Add Recipe">
+                
+           </form>
+        </div>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>
